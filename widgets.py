@@ -6,7 +6,7 @@ root.title("Widgets and stuff")
 root.geometry("300x250") # Slightly larger to fit content
 
 # 1. Added quotes to all string values
-lbl = Label(text="Hey there!", fg="black", bg="#11D9E8", height=1, width=30) 
+lbl = Label(text="Hey there!", fg="black", bg="#ACDBDE", height=1, width=30) 
 name_lbl = Label(text="Full Name", bg="#00FFB7",fg="black") 
 name_entry = Entry() 
 
