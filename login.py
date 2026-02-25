@@ -11,11 +11,12 @@ lbl3=Label(frame, text='Password', bg='#3895D3', fg='white', width=12)
 
 sign = "*"
 def change():
-    global sign
-    if sign == "*":
-        sign = ""
+    if pass_entry.cget('show') == '':
+        # Hide password
+        pass_entry.config(show='*')
     else:
-        sign = "*"
+        # Show password
+        pass_entry.config(show='')
 
 
 
