@@ -13,18 +13,23 @@ day=Entry()
 
 
 def display():
-    yr = str(year.get())
-    mt = str(month.get())
-    dy = str(day.get())
-    dob_1 = yr + "-" + mt + "-" + dy
+    yr = int(year.get())
+    mt = int(month.get())
+    dy = int(day.get())
     
+    birth_date=date(yr,mt,dy)
     # Converting the string to a date object
-    birth_date = datetime.strptime(dob_1, "%Y-%m-%d").date()
+    today=date.today()
     
     # Your original calculation method
-    age = date.today() - birth_date
-    if birth_date>date.today:
+    age = today.year - birth_date.year
+    if (today.month, today.day)<(birth_date.month,birth_date.day):
+        age-=1
+    message=f"Your age is {age}."
+    if birth_date>today:
         textbox.insert(END,"error")
+    else:
+        textbox.insert(END,message)
 start=Button(text="Calculate age", command=display, height=1, bg="#00FF6A", fg="black")
 textbox=Text(bg="#FFFFFF", fg='black')
 lbl.pack(pady=5)
@@ -35,4 +40,5 @@ month.pack(pady=5)
 day_lbl.pack(pady=5)
 day.pack(pady=5)
 start.pack(pady=5)
+textbox.pack(pady=5)
 c_w.mainloop()
