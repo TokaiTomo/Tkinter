@@ -42,7 +42,7 @@ def topwin():
     top = Toplevel()
     top.title("Denominations Calculator")
     top.configure(bg="light blue")
-    top.geometry("600x350+50+50")
+    top.geometry("600x380")
 
     label = Label(top, text="Enter total amount", bg="light blue",fg="black")
     entry = Entry(top)
@@ -59,13 +59,15 @@ def topwin():
     l3 = Label(top, text="100K", bg="light blue",fg="black")
     l4 = Label(top, text="50K", bg="light blue",fg="black")
     l5 = Label(top, text="10K", bg="light blue",fg="black")
+    l6 = Label(top, text="1K", bg="light blue",fg="black")
 
     t1 = Entry(top)
     t2 = Entry(top)
     t3 = Entry(top)
     t4 = Entry(top)
     t5 = Entry(top)
-    
+    t6 = Entry(top)
+
     def calculator():
         try:
             amount = int(entry.get())
@@ -83,18 +85,24 @@ def topwin():
             amount %= 50000 
 
             note10=amount//10000  
-            amount %= 10000     
+            amount %= 10000   
+
+            note1=amount//1000  
+   
             t1.delete(0, END)
             t2.delete(0, END)
             t3.delete(0, END)
-            t4.delete(0,END)
-            t5.delete(0,END)
+            t4.delete(0, END)
+            t5.delete(0, END)
+            t6.delete(0, END)
+
 
             t1.insert(END, str(note500))
             t2.insert(END, str(note200))
             t3.insert(END, str(note100))
             t4.insert(END, str(note50))
             t5.insert(END, str(note10))
+            t6.insert(END, str(note1))
 
         except ValueError:
             messagebox.showerror("Error", "Please enter a valid number.")
@@ -119,12 +127,14 @@ def topwin():
     l3.place(x=180, y=260)
     l4.place(x=180, y=290)
     l5.place(x=180, y=320)
+    l6.place(x=180, y=350)
 
     t1.place(x=270, y=200)
     t2.place(x=270, y=230)
     t3.place(x=270, y=260)
     t4.place(x=270, y=290)
     t5.place(x=270, y=320)
+    t6.place(x=270, y=350)
 
     top.mainloop()
 
